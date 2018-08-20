@@ -1,0 +1,54 @@
+# PlaceholderAPI version 2.5.0
+# Created by extended_clip
+
+check_updates: true
+cloud_enabled: true
+injector_enabled: true
+boolean:
+  'true': 'yes'
+  'false': 'no'
+date_format: MM/dd/yy HH:mm:ss
+Global:
+  Language: English
+  SelectionToolId: 290
+  InfoToolId: 287
+  MoveCheckInterval: 500
+  SaveInterval: 10
+  DefaultGroup: default
+  UseLeaseSystem: false
+  LeaseCheckInterval: 10
+  LeaseAutoRenew: true
+  EnablePermissions: true
+  LegacyPermissions: false
+  EnableEconomy: true
+  EnableRentSystem: false
+  RentCheckInterval: 10
+  ResidenceChatEnable: true
+  UseActionBar: true
+  ResidenceChatColor: DARK_PURPLE
+  AdminOnlyCommands: false
+  AdminOPs: true
+  MultiWorldPlugin: Multiverse-Core
+  ResidenceFlagsInherit: true
+  PreventRentModify: true
+  StopOnSaveFault: true
+  ResidenceNameRegex: '[^a-zA-Z0-9\\-\\_]'
+  ShowIntervalMessages: false
+  VersionCheck: true
+  CustomContainers: []
+  CustomBothClick: []
+  CustomRightClick: []
+settings:
+  address: 127.0.0.1
+  port: 5091
+  credentials:
+    username: example
+    password: example
+expansions:
+  vault:
+    formatting:
+      thousands: k
+      trillions: T
+      quadrillions: Q
+      billions: B
+      millions: M

@@ -1,0 +1,171 @@
+name: ${project.name}
+version: ${project.version}
+description: The BOSS Shop Plugin redone
+author: Black_ixx,Imcc
+website: http://felix.neuby.de
+main: ${project.groupId}.${project.artifactId}.${project.name}
+softdepend: [PlaceholderAPI]
+api-version: 1.13
+commands:
+  ${project.name}:
+    aliases: [bs,shop]
+    description: ${project.name} Command
+permissions:
+  ${project.name}.createSign:
+    description: Allows to create ${project.name} Signs
+    default: op
+  ${project.name}.*:
+    description: ${project.name}全部权限
+    default: op
+    children:
+      ${project.name}.changeBuyCount: true
+      ${project.name}.cmdcomplete: true
+      ${project.name}.cmd.clear: true
+      ${project.name}.cmd.close.other: true
+      ${project.name}.cmd.help: true
+      ${project.name}.cmd.mail: true
+      ${project.name}.cmd.nbt: true
+      ${project.name}.open: true
+      ${project.name}.cmd.reload: true
+      ${project.name}.cmd.sale: true
+      ${project.name}.cmd.unsale: true
+  ${project.name}.cmdcomplete:
+    default: true
+  ${project.name}.changeBuyCount:
+    description: 允许玩家更改右键购买数量
+    default: op
+  ${project.name}.cmd.clear:
+    description: 清理插件缓存数据的权限
+    default: op
+  ${project.name}.cmd.close.other:
+    description: 关闭指定玩家的商店
+    default: op
+  ${project.name}.cmd.help:
+    default: true
+  ${project.name}.cmd.nbt:
+    description: 操作BooShop NBT库存的相关权限
+    default: op
+    children:
+      ${project.name}.cmd.nbt.add: true
+      ${project.name}.cmd.nbt.clear: true
+      ${project.name}.cmd.nbt.help: true
+  ${project.name}.cmd.nbt.add:
+    default: op
+  ${project.name}.cmd.nbt.clear:
+    default: op
+  ${project.name}.cmd.nbt.help:
+    default: op
+  ${project.name}.cmd.mail:
+    description: 邮件命令的相关权限
+    default: op
+    children:
+      ${project.name}.cmd.mail.help: true
+      ${project.name}.cmd.mail.check: true
+      ${project.name}.cmd.mail.recive: true
+      ${project.name}.cmd.mail.send: true
+  ${project.name}.cmd.mail.check:
+    description: 检查邮件的权限
+    default: true
+  ${project.name}.cmd.mail.help:
+    description: 获取邮件命令帮助的权限
+    default: true
+  ${project.name}.cmd.mail.recive:
+    description: 接收邮件的权限
+    default: true
+  ${project.name}.cmd.mail.send:
+    description: 发送邮件的权限
+    default: op
+  ${project.name}.open:
+    description: 打开商店的权限
+    default: op
+    children:
+      ${project.name}.open.sign: true
+      ${project.name}.open.command: true
+      ${project.name}.open.item: true
+      ${project.name}.open.other: true
+  ${project.name}.open.sign:
+    description: 允许通过牌子打开商店
+    default: true
+  ${project.name}.open.command:
+    description: 允许通过命令打开商店
+    default: true
+  ${project.name}.open.other:
+    description: 允许打开其他玩家的商店
+    default: op
+  ${project.name}.open.item:
+    description: 允许通过物品来打开商店
+    default: op
+  ${project.name}.cmd.reload:
+    description: 重载配置
+    default: op
+    children:
+      ${project.name}.cmd.reload.help: true
+      ${project.name}.cmd.reload.lang: true
+      ${project.name}.cmd.reload.plugin: true
+      ${project.name}.cmd.reload.shop: true
+  ${project.name}.cmd.reload.plugin:
+    description: 重载${project.name}所有配置的权限
+    default: op
+  ${project.name}.cmd.reload.config:
+    description: 重载${project.name}商店配置的权限
+    default: op
+  ${project.name}.cmd.reload.help:
+    description: 获取/BS reload命令帮助的权限
+    default: op
+  ${project.name}.cmd.reload.itemname:
+    description: 重载${project.name}物品名字翻译的权限
+    default: op
+  ${project.name}.cmd.reload.lang:
+    description: 重载${project.name}语言文件
+    default: op
+  ${project.name}.cmd.reload.shop:
+    description: 重载${project.name}商店的权限
+    default: op
+  ${project.name}.cmd.sale:
+    description: BooShop 寄售系统相关权限
+    default: op
+    children:
+      ${project.name}.cmd.sale.forsale: true
+      ${project.name}.cmd.sale.pricetype.*: true
+      ${project.name}.cmd.sale.type.*: true
+      ${project.name}.cmd.sale.unlimited: true
+  ${project.name}.cmd.sale.announce.other:
+    description: 物品上架时发送全服公告的权限
+    default: op
+  ${project.name}.cmd.sale.forsale:
+    description: 允许玩家寄售物品
+    default: op
+  ${project.name}.cmd.unsale:
+    description: 物品下架
+    default: op
+    children:
+      ${project.name}.cmd.unsale.user: true
+      ${project.name}.cmd.unsale.admin: true
+  ${project.name}.cmd.unsale.user:
+    description: 用户物品下架自己权限
+    default: true
+  ${project.name}.cmd.unsale.admin:
+    description: 管理员下架物品权限
+    default: op
+  ${project.name}.sale.type.*:
+    description: 允许玩家寄售物品
+    default: true
+    children:
+      ${project.name}.sale.type.item: true
+      ${project.name}.sale.type.money: true
+      ${project.name}.sale.type.points: true
+  ${project.name}.sale.pricetype.*:
+    description: 允许玩家为寄售物品设置的价格类型
+    default: true
+    children:
+      ${project.name}.sale.pricetype.money: true
+      ${project.name}.sale.pricetype.points: true
+  ${project.name}.sale.type.item:
+    default: true
+  ${project.name}.sale.type.money:
+    default: true
+  ${project.name}.sale.type.points:
+    default: true
+  ${project.name}.sale.unlimited:
+    description: 无视玩家寄售物品数量的上限
+    default: op
