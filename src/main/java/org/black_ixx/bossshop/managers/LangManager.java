@@ -140,12 +140,12 @@ public class LangManager extends TLangManager<BossShop>{
         this.mConfig.addDefault("MsgAlreadySoldOut","&c商品已经售罄");
         this.mConfig.addDefault("MsgAutoDetectPointPlugin","自动选择%plugin%点券插件");
         this.mConfig.addDefault("MsgBindItemToOpenMainShopNotExist","&c绑定打开BossShop主商店的的物品%item%不存在,设置为默认值的347(钟表)");
-        this.mConfig.addDefault("MsgCancelDownLoadLangAfterThreeFailDownLoadResourceLinkInfo","在三次尝试下载资源链接信息后,仍然失败,取消语言文件下载");
-        this.mConfig.addDefault("MsgCancelDownLoadLangAfterThreeFailDownLoadVanillaLangFile","在三次尝试下载原版翻译文件后,仍然失败,取消语言文件下载");
-        this.mConfig.addDefault("MsgCancelDownLoadLangAfterThreeFailDownLoadVersionLinkInfo","在三次尝试下载版本链接信息后,仍然失败,取消语言文件下载");
         this.mConfig.addDefault("MsgCannotBuyYourselfGoods","&c你不能购买自己的寄售物品");
         this.mConfig.addDefault("MsgCannotCreatMailItem","&c无法创建邮件物品");
+        this.mConfig.addDefault("MsgCannotGetURLFromFile","&c无法从version.json中获取下载链接");
         this.mConfig.addDefault("MsgCannotFoundThisLangDownloadLink","&c未找到%lang%的原版物品翻译语言");
+        this.mConfig.addDefault("MsgContOpenConnection","&c无法打开下载链接");
+        this.mConfig.addDefault("MsgContDownFile","&c无法下载文件%file%");
         this.mConfig.addDefault("MsgChatSaleExit","你已经退出聊天栏寄售");
         this.mConfig.addDefault("MsgChatSaleFinish","你已经设置所有寄售参数");
         this.mConfig.addDefault("MsgChatSaleRepartStart","&c你已经开始寄售了,请勿重复开始");
@@ -196,6 +196,7 @@ public class LangManager extends TLangManager<BossShop>{
         this.mConfig.addDefault("MsgMailHasSend","邮件已经发送");
         this.mConfig.addDefault("MsgMailMaxSaveNumb","====邮件最大保存数量[%numb%]====");
         this.mConfig.addDefault("MsgMailNotExist","&c邮件%mail%不存在");
+        this.mConfig.addDefault("MsgMalformedURL","&c链接格式不正确: %url%");
         this.mConfig.addDefault("MsgMenuItemConfigNotFound","未找到菜单物品");
         this.mConfig.addDefault("MsgMissingNBTNode","&cNBT库丢失NBT节点");
         this.mConfig.addDefault("MsgMoneyNotEnough","&c你钱不够了");
@@ -242,7 +243,9 @@ public class LangManager extends TLangManager<BossShop>{
         this.mConfig.addDefault("MsgRemoveShopDueToFileNotExist","商店%shop%由于配置文件不存在,移除");
         this.mConfig.addDefault("MsgStartReloadShop","开始重载商店");
         this.mConfig.addDefault("MsgSuccessUnsaleItem","成功下架寄售物品");
+        this.mConfig.addDefault("MsgTotalImportMinecraftLang","成功导入%numb%条原版翻译");
         this.mConfig.addDefault("MsgUnableFoundSaleOwner","&c无法找到寄售商品的所有者");
+        this.mConfig.addDefault("MsgUnableToConvertLangFile","&c无法转换语言%lang%的json文件");
         this.mConfig.addDefault("MsgUnknowCommand","&c未知指令,输入/BossShop help 获取帮助");
         this.mConfig.addDefault("MsgUnknowOutDateSaleItemType","&c未知的过期寄售物品类型");
         this.mConfig.addDefault("MsgUnknowPriceType","&c未知的价格类型");

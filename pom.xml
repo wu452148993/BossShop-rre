@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.black_ixx</groupId>
     <artifactId>bossshop</artifactId>
-    <version>2.5.26-beta</version>
+    <version>2.5.27-beta</version>
     <name>BossShop</name>
     <build>
         <finalName>${project.name}_re_v${project.version}<!--_${maven.build.timestamp}--></finalName>
@@ -48,6 +48,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                	<skip>true</skip>
                     <minimizeJar>false</minimizeJar>
                     <createSourcesJar>true</createSourcesJar>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
@@ -88,21 +89,9 @@
     <repositories>
         <repository>
             <id>xjboss-repo</id>
-            <url>https://ci.xjboss.net/plugin/repository/everything</url>
+            <url>https://ci.aimc.vip/plugin/repository/everything</url>
         </repository>
     </repositories>
-    <ciManagement>
-        <system>Jenkins</system>
-        <url>http://ci.yumc.pw/job/${project.artifactId}/</url>
-    </ciManagement>
-
-    <distributionManagement>
-        <repository>
-            <id>jtb</id>
-            <name>YUMC</name>
-            <url>http://repo.yumc.pw/content/repositories/yumcenter/</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

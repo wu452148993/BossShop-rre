@@ -23,7 +23,7 @@ public class AttributeRemover{
         if(ClassUtil.isClassLoaded("org.bukkit.inventory.ItemFlag")){
             useItemFlags=true;
         }else{
-            Log.warn("此服务器版本"+NMSUtil.getServerVersion()+"可能无法启用属性移除");
+        	Log.warn("此服务器版本"+NMSUtil.getBukkitAPIVersion()+"可能无法启用属性移除");
             useReflection=true;
         }
         return true;
