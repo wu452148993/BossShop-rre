@@ -28,11 +28,11 @@ import cc.bukkitPlugin.commons.util.BukkitUtil;
 import cc.commons.commentedyaml.CommentedYamlConfig;
 import cc.commons.util.FileUtil;
 import cc.commons.util.IOUtil;
+import cc.commons.util.ToolKit;
 
 public class ItemNameManager extends LocalLanguage<BossShop> implements IConfigModel,INeedReload{
 
-    private final static Pattern mLangReg=Pattern.compile("minecraft/lang/([\\w_]+).(?:lang|json)");
-    private static boolean LANG_JSON_FORMAT=false;
+    private final static Pattern mLangReg=Pattern.compile("minecraft/lang/([\\w_]+).(?:lang|json)");  
     private String mLinkVersions="https://s3.amazonaws.com/Minecraft.Download/versions/%version%/%version%.json";
     private String mLinkAssetIndex="https://launchermeta.mojang.com";
     private String mLinkLang="http://resources.download.minecraft.net/";
@@ -109,7 +109,7 @@ public class ItemNameManager extends LocalLanguage<BossShop> implements IConfigM
                                 Matcher langMatcher=ItemNameManager.mLangReg.matcher(tResourceKey);
                                 if(!langMatcher.find())
                                     continue;
-                                LANG_JSON_FORMAT=tResourceKey.endsWith(".json");
+                               
                                 tResourceKey=langMatcher.group(langMatcher.groupCount()).toLowerCase();
                                 Object sha1=tResource.get("hash");
                                 if(sha1==null)
@@ -239,7 +239,7 @@ public class ItemNameManager extends LocalLanguage<BossShop> implements IConfigM
         }
 
         this.mItemNames.clear();
-        if(!LANG_JSON_FORMAT){
+        if(ToolKit.compareVersion(BukkitUtil.getMinecraftVersion(),"1.13")<0){
             String[] tLines=tContent.split("[\\r]?\n");
             for(String sLine : tLines){
                 String[] t=sLine.split("=",2);
