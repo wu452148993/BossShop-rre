@@ -96,12 +96,14 @@ public class LangManager extends TLangManager<BossShop>{
     @Override
     public void addDefaults(){
         super.addDefaults();
-        this.mConfig.addDefault("HelpClear","清理插件中一些模块的状态");
+        //this.mConfig.addDefault("HelpClear","清理插件中一些模块的状态");
+        this.mConfig.addDefault("HelpClearModelStatus","清理插件中一些模块的状态");
         this.mConfig.addDefault("HelpClosePlayerShop","关闭玩家打开的BossShop商店");
         this.mConfig.addDefault("HelpHelpOpen","获取有关/BossShop open的帮助指令");
         this.mConfig.addDefault("HelpMailCheck","检查你的邮件列表");
         this.mConfig.addDefault("HelpMailHelp","获取邮件命令的帮助");
-        this.mConfig.addDefault("HelpMailRevice","接受邮件中的物品");
+        //this.mConfig.addDefault("HelpMailRevice","接受邮件中的物品");
+        this.mConfig.addDefault("HelpMailRecive","接受邮件中的物品");        
         this.mConfig.addDefault("HelpMailSend","发送物品到玩家的邮箱");
         this.mConfig.addDefault("HelpNBTAdd","添加当前手上物品的NBT信息到NBT库存");
         this.mConfig.addDefault("HelpNBTClear","清理由插件自动生成且引用次数为0的NBT库存");
