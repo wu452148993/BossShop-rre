@@ -80,7 +80,25 @@ public class ItemStackCreator extends AManager<BossShop>{
                     Log.severe("Mistake in Config: "+tPropValue+" (id) needs to be a number!");
                     return null;
                 }
+                XMaterial tXMeta=IMaterial.XfromID(tPropValue);
                 
+                if(tXMeta==null||tXMeta==XMaterial.AIR){
+                    Log.severe("Mistake in Config: "+tPropValue+" (id) is no valid Material!");
+                    return null;
+                }
+                tCreatingItem.setType(tXMeta.parseMaterial());
+                
+                if(XMaterial.isDamageable(tXMeta) && !dur.equals("0"))
+                {
+                	 try{
+                         short dura=Short.parseShort(dur);
+                         tCreatingItem.setDurability(dura);
+                     }catch(Exception e){
+                         // Do not change anything
+                     }
+                }
+                continue;
+                /*
                 if(XMaterial.isDamageable(IMaterial.fromID(mattype)) && !dur.equals("0"))
                 {
                 	 try{
@@ -99,7 +117,7 @@ public class ItemStackCreator extends AManager<BossShop>{
                 }
                 tCreatingItem.setType(tMeta);
                 continue;
-                
+                */
                 /*
                 if(tPropValue.contains(":")){
                     String pa[]=tPropValue.split(":",2);
@@ -156,6 +174,29 @@ public class ItemStackCreator extends AManager<BossShop>{
                 if(tResult!=null) tCreatingItem=tResult;
             }else if(tPropName.equalsIgnoreCase("type")){
                 tPropValue=stringFix(tPropValue);
+                tPropValue=tPropValue.toUpperCase();
+                XMaterial tXMeta = XMaterial.XfromString(tPropValue);
+                if(tXMeta==null||tXMeta==XMaterial.AIR){
+                    Log.severe("Mistake in Config: "+tPropValue+" (type) is no valid Material!");
+                    return null;
+                }
+                tCreatingItem.setType(tXMeta.parseMaterial());
+                if(XMaterial.isDamageable(tXMeta) && tPropValue.contains(":"))
+        		{
+                	String dur=tPropValue.split(":",2)[1].trim();
+                	try{
+                        short dura=Short.parseShort(dur);
+                        if(dura != 0)
+                        {
+                        	tCreatingItem.setDurability((short)dura);
+                        }
+                    }catch(Exception e){
+                        // Do not change anything
+                    }	
+        		}
+                continue;
+                   
+                /*
                 if(tPropValue.contains(":")){
                     String pa[]=tPropValue.split(":",2);
                     String mattype=pa[0].trim();
@@ -181,7 +222,7 @@ public class ItemStackCreator extends AManager<BossShop>{
                     return null;
                 }
                 tCreatingItem.setType(tMeta);
-                continue;
+                continue;*/
                    
                 /*
                 if(tPropValue.contains(":")){
@@ -224,13 +265,18 @@ public class ItemStackCreator extends AManager<BossShop>{
                 	 tCreatingItem.setDurability(Short.parseShort(tPropValue));
                 }else
                 {
-                	String mat = (XMaterial.fromMaterial(tCreatingItem.getType()).getOldName()) + ":"+tPropValue;
-                    Material tMeta=XMaterial.fromString(mat);                		
-                    if(tMeta==null||tMeta==Material.AIR){
+                	//String mat = (XMaterial.fromMaterial(tCreatingItem.getType()).getOldName()) + ":"+tPropValue;
+                   // Material tMeta=XMaterial.fromString(mat);            
+                	Material tMeta = XMaterial.requestXMaterial(XMaterial.fromMaterial(tCreatingItem.getType()).getOldName(), Byte.parseByte(tPropValue)).parseMaterial();
+                	if(tMeta!=null)
+                	{
+                		tCreatingItem.setType(tMeta);
+                	}
+                	/*if(tMeta==null||tMeta==XMaterial.AIR){
                         Log.severe("Mistake in Config: "+tPropValue+" (type) is no valid Material!");
                         return null;
-                    }
-                    tCreatingItem.setType(tMeta);
+                    }*/
+                   // tCreatingItem.setType(tMeta);
                 }
                 	             
                 continue;
