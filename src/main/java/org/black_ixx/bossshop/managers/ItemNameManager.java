@@ -139,10 +139,14 @@ public class ItemNameManager extends LocalLanguage<BossShop> implements IConfigM
             if(this.downloadFile(tURL,tTempF,null)){
                 File tLangF=this.getLangFile();
                 try{
-                    FileUtil.deleteFile(tLangF);
-                    tTempF.renameTo(tLangF);
-                    if(!tLangF.isFile()){
-                        FileUtil.copyFile(tLangF,tLangF); //重命名失败时直接复制
+                	if(tLangF.getParentFile().isDirectory()){
+                        FileUtil.deleteFile(tLangF);
+                    }else{
+                        tLangF.getParentFile().mkdirs();
+                    }
+
+                    if(!tTempF.renameTo(tLangF)){
+                        FileUtil.copyFile(tTempF,tLangF); //重命名失败时直接复制
                     }
                 }catch(IOException ioexp){
                     Log.severe(pSender,this.mPlugin.C("MsgErrorHappedWhenTransFormFileContent")+": "+ioexp.getLocalizedMessage());
