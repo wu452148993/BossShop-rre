@@ -672,7 +672,7 @@ public class SaleManager extends AManager<BossShop> implements IConfigModel{
                 String addLore = "";
                 if(item.getItemMeta().hasLore() && !item.getItemMeta().getLore().get(0).equals(""))
                 {
-                	addLore += "#&2描述：";
+                	addLore += "#&2描述：#";
                 	for(String sStr : item.getItemMeta().getLore())
                 	{
                 		addLore += "&e" + sStr + "#";
