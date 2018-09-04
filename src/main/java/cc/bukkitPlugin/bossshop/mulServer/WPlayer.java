@@ -30,6 +30,7 @@ import org.bukkit.advancement.AdvancementProgress;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.PistonMoveReaction;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.conversations.Conversation;
@@ -2014,6 +2015,12 @@ public class WPlayer implements Player{
 	public void updateCommands() {
 		// TODO 自动生成的方法存根
 		
+	}
+
+	@Override
+	public BlockFace getFacing() {
+		// TODO 自动生成的方法存根
+		return null;
 	}
 
 }
